@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_beneficioSocial.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_beneficioSocial.php</h1>
+<p>Documentation is available at <a href="../default/_c_beneficioSocial_php.html">c_beneficioSocial.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para beneficiosocial</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para registrar los valores de beneficio social en la priorización</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_beneficioSocial.html">c_beneficioSocial</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_beneficioSocial.html#var$datpro_id">$datpro_id</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_beneficioSocial.html#var$ben_directos">$ben_directos</a><strong>;</strong></li>
+<li><a name="a11"></a>  <font color="blue">var </font><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">$ben_totalparroquias</a><strong>;</strong></li>
+<li><a name="a12"></a>&nbsp;</li>
+<li><a name="a13"></a>  <font color="blue">var </font><a href="../default/c_beneficioSocial.html#var$separador">$separador</a><strong>;</strong></li>
+<li><a name="a14"></a>  </li>
+<li><a name="a15"></a>  <font color="blue">var </font><a href="../default/c_beneficioSocial.html#var$con">$con</a><strong>;</strong></li>
+<li><a name="a16"></a>&nbsp;</li>
+<li><a name="a17"></a>  </li>
+<li><a name="a18"></a>  <font color="green">//constructor</font></li>
+<li><a name="a18"></a>  </li>
+<li><a name="a19"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodc_beneficioSocial">c_beneficioSocial</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a20"></a>  <strong>{</strong></li>
+<li><a name="a21"></a>        <font color="blue">include_once</font><strong>(</strong><font color="#66cccc">&quot;class/c_datoProyecto.php&quot;</font><strong>)</strong><strong>;</strong></li>
+<li><a name="a22"></a>        </li>
+<li><a name="a23"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a>=0<strong>;</strong></li>
+<li><a name="a24"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>=<font color="#66cccc">&quot;0&quot;</font><strong>;      </strong></li>
+<li><a name="a25"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>=<font color="#66cccc">&quot;0&quot;</font><strong>;</strong></li>
+<li><a name="a26"></a>      </li>
+<li><a name="a27"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a28"></a>      </li>
+<li><a name="a29"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$separador">separador</a>=<font color="#66cccc">&quot;.&quot;</font><strong>;</strong></li>
+<li><a name="a30"></a>  <strong>}  </strong></li>
+<li><a name="a31"></a>  </li>
+<li><a name="a32"></a><font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a32"></a>  </li>
+<li><a name="a33"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a34"></a>  <strong>{</strong></li>
+<li><a name="a35"></a>    <strong>$ncampos</strong>=3<strong>;</strong></li>
+<li><a name="a36"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a37"></a>    <strong>{</strong></li>
+<li><a name="a38"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a39"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>=<strong>$dato</strong><strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a40"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>=<strong>$dato</strong><strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a41"></a>    <strong>} </strong></li>
+<li><a name="a42"></a>  <strong>}</strong></li>
+<li><a name="a43"></a>  </li>
+<li><a name="a44"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a45"></a>  <strong>{</strong></li>
+<li><a name="a46"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;class c_beneficioSocial &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a47"></a>      echo <font color="#66cccc">&quot;datpro_id:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a48"></a>    echo <font color="#66cccc">&quot;ben_directos:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a49"></a>    echo <font color="#66cccc">&quot;ben_totalparroquias:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a50"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a51"></a>  <strong>}  </strong></li>
+<li><a name="a52"></a>    </li>
+<li><a name="a53"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a54"></a>  <strong>{</strong></li>
+<li><a name="a55"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select datpro_id from beneficiosocial &quot;</font></li>
+<li><a name="a56"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a57"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a58"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a59"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a60"></a>    else</li>
+<li><a name="a61"></a>      <strong>$res</strong>=0<strong>; </strong></li>
+<li><a name="a62"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a63"></a>  <strong>}</strong></li>
+<li><a name="a64"></a>&nbsp;</li>
+<li><a name="a65"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodcrearoactualizar">crearoactualizar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a66"></a>  <strong>{</strong></li>
+<li><a name="a67"></a>    <font color="green">//$this-&gt;con-&gt;debug=true;</font></li>
+<li><a name="a68"></a>      <font color="green">//recuperar el total de las parroquias</font></li>
+<li><a name="a69"></a>      <strong>$cdpro</strong>=new <a href="../default/c_datoProyecto.html">c_datoProyecto</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a70"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>=<strong>$cdpro</strong><strong>-&gt;</strong>totalbeneficiarios<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a71"></a>    </li>
+<li><a name="a72"></a>      <strong>$existe</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;  </strong></li>
+<li><a name="a73"></a>    <font color="blue">if</font><strong>(</strong><strong>$existe</strong><strong>)</strong></li>
+<li><a name="a74"></a>    <strong>{</strong></li>
+<li><a name="a75"></a>      <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodupdate">update</a><strong>(</strong><strong>$existe</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a76"></a>    <strong>}</strong></li>
+<li><a name="a77"></a>    else</li>
+<li><a name="a78"></a>    <strong>{</strong></li>
+<li><a name="a79"></a>      <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodadd">add</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a80"></a>    <strong>}</strong></li>
+<li><a name="a81"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a82"></a>  <strong>} </strong></li>
+<li><a name="a83"></a>  </li>
+<li><a name="a84"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a84"></a>  </li>
+<li><a name="a85"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a86"></a>  <strong>{</strong></li>
+<li><a name="a87"></a>      <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a88"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a89"></a>    <strong>{</strong></li>
+<li><a name="a90"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into beneficiosocial&quot;</font></li>
+<li><a name="a91"></a>            .<font color="#66cccc">&quot; (ben_directos,ben_totalparroquias,datpro_id)&quot;</font></li>
+<li><a name="a92"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a93"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>',<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a>)</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a94"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a95"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a96"></a>      <strong>{</strong></li>
+<li><a name="a97"></a>        <font color="green">//recuperar el id del beneficiosociales insertado, datpro_id</font></li>
+<li><a name="a98"></a>        <strong>$nid</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a99"></a>      <strong>}</strong></li>
+<li><a name="a100"></a>      else</li>
+<li><a name="a101"></a>        <strong>$nid</strong>=0<strong>;</strong></li>
+<li><a name="a102"></a>    <strong>}</strong></li>
+<li><a name="a103"></a>    else</li>
+<li><a name="a104"></a>      <strong>$nid</strong>=0<strong>;  </strong></li>
+<li><a name="a105"></a>      </li>
+<li><a name="a106"></a>    <font color="blue">return</font><strong>(</strong><strong>$nid</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a107"></a>  <strong>}</strong></li>
+<li><a name="a108"></a>  </li>
+<li><a name="a109"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a110"></a>  <strong>{</strong></li>
+<li><a name="a111"></a>     <strong>$sql</strong>=<font color="#66cccc">&quot;delete from beneficiosocial &quot;</font></li>
+<li><a name="a112"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a113"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a114"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a115"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a116"></a>    else</li>
+<li><a name="a117"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a118"></a>  <strong>}</strong></li>
+<li><a name="a119"></a>  </li>
+<li><a name="a120"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a121"></a>  <strong>{</strong></li>
+<li><a name="a122"></a>    <strong>$aux</strong>=new <a href="../default/c_beneficioSocial.html#methodc_beneficioSocial">c_beneficioSocial</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a123"></a>    <strong>$res</strong>=<strong>$aux</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a124"></a>      <font color="blue">if</font><strong>(</strong><strong>$res</strong>!=0<strong>)</strong></li>
+<li><a name="a125"></a>      <strong>{</strong></li>
+<li><a name="a126"></a>        <font color="green">//actualiza todo menos el monto que es calculado</font></li>
+<li><a name="a127"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE beneficiosocial &quot;</font></li>
+<li><a name="a128"></a>          .<font color="#66cccc">&quot;set &quot;</font></li>
+<li><a name="a129"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">ben_directos='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a130"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">ben_totalparroquias='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a131"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">WHERE datpro_id=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a132"></a><font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a133"></a><font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a134"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a135"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a136"></a>    <strong>{</strong></li>
+<li><a name="a137"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a138"></a>    <strong>}      </strong></li>
+<li><a name="a139"></a>    else</li>
+<li><a name="a140"></a>      <font color="blue">return </font>0<strong>;    </strong></li>
+<li><a name="a141"></a>      <strong>}</strong></li>
+<li><a name="a142"></a>  <strong>}</strong></li>
+<li><a name="a143"></a>&nbsp;</li>
+<li><a name="a144"></a>  <font color="#009999">/**</font></li>
+<li><a name="a145"></a><font color="#009999">   * Enter description here...</font></li>
+<li><a name="a146"></a><font color="#009999">   *</font></li>
+<li><a name="a147"></a><font color="#009999">   * </font><strong><font color = "#0099FF">@param </font></strong><em>unknown_type </em><strong>$id </strong></li>
+<li><a name="a148"></a><font color="#009999">   * </font><strong><font color = "#0099FF">@return </font></strong><em>unknown </em></li>
+<li><a name="a149"></a><font color="#009999">   */</font></li>
+<li><a name="a150"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a151"></a>  <strong>{</strong></li>
+<li><a name="a152"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select ben_directos,ben_totalparroquias &quot;</font></li>
+<li><a name="a153"></a>          .<font color="#66cccc">&quot;from beneficiosocial &quot;</font></li>
+<li><a name="a154"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a155"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a156"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a157"></a>      <strong>{</strong></li>
+<li><a name="a158"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$datpro_id">datpro_id</a>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a159"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a160"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a161"></a>        </li>
+<li><a name="a162"></a>        <strong>$res</strong>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a163"></a>    <strong>}</strong></li>
+<li><a name="a164"></a>    else</li>
+<li><a name="a165"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a166"></a>      </li>
+<li><a name="a167"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a168"></a>  <strong>}</strong></li>
+<li><a name="a169"></a>  </li>
+<li><a name="a170"></a>  <font color="blue">function </font><a href="../default/c_beneficioSocial.html#methodporcentaje">porcentaje</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a171"></a>  <strong>{</strong></li>
+<li><a name="a172"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a173"></a>      <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_directos">ben_directos</a>*100/<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_beneficioSocial.html#var$ben_totalparroquias">ben_totalparroquias</a><strong>;</strong></li>
+<li><a name="a174"></a>      <font color="blue">return</font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a175"></a>  <strong>}</strong></li>
+<li><a name="a176"></a>  </li>
+<li><a name="a177"></a><strong>}</strong></li>
+<li><a name="a178"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:24 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

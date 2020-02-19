@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_dpUbicacion.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_dpUbicacion.php</h1>
+<p>Documentation is available at <a href="../default/_c_dpUbicacion_php.html">c_dpUbicacion.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para dp_ubicacion</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para registrar la ubicación en la cual tiene ámbito de acción el proyecto</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_dpUbicacion.html">c_dpUbicacion</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$ubi_codigo">$ubi_codigo</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$datpro_id">$datpro_id</a><strong>;</strong></li>
+<li><a name="a11"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$pro_codigo">$pro_codigo</a><strong>;</strong></li>
+<li><a name="a12"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$can_codigo">$can_codigo</a><strong>;</strong></li>
+<li><a name="a13"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$par_codigo">$par_codigo</a><strong>;</strong></li>
+<li><a name="a14"></a>  </li>
+<li><a name="a15"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">$ubi_comunidad</a><strong>;</strong></li>
+<li><a name="a16"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$ubi_observacion">$ubi_observacion</a><strong>;</strong></li>
+<li><a name="a17"></a>  </li>
+<li><a name="a18"></a>  <font color="blue">var </font><a href="../default/c_dpUbicacion.html#var$con">$con</a><strong>;</strong></li>
+<li><a name="a19"></a>&nbsp;</li>
+<li><a name="a20"></a>  </li>
+<li><a name="a21"></a>  <font color="green">//constructor</font></li>
+<li><a name="a21"></a>  </li>
+<li><a name="a22"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodc_dpUbicacion">c_dpUbicacion</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a23"></a>  <strong>{</strong></li>
+<li><a name="a24"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_codigo">ubi_codigo</a>=0<strong>;</strong></li>
+<li><a name="a25"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$datpro_id">datpro_id</a>=0<strong>;      </strong></li>
+<li><a name="a26"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>=0<strong>;</strong></li>
+<li><a name="a27"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a>=0<strong>;</strong></li>
+<li><a name="a28"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>=0<strong>;</strong></li>
+<li><a name="a29"></a>      </li>
+<li><a name="a30"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a31"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a32"></a>      </li>
+<li><a name="a33"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a34"></a>  <strong>}  </strong></li>
+<li><a name="a35"></a><font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a35"></a>  </li>
+<li><a name="a36"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a37"></a>  <strong>{</strong></li>
+<li><a name="a38"></a>    <strong>$ncampos</strong>=5<strong>;</strong></li>
+<li><a name="a39"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a40"></a>    <strong>{</strong></li>
+<li><a name="a41"></a>      <font color="green">//$this-&gt;datpro_id=$dato[0];</font></li>
+<li><a name="a42"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a43"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>=<strong>$dato</strong><strong>[</strong>1<strong>]</strong><strong>;      </strong></li>
+<li><a name="a44"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>=<strong>$dato</strong><strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a45"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>=<strong>$dato</strong><strong>[</strong>3<strong>]</strong><strong>;</strong></li>
+<li><a name="a46"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>=<strong>$dato</strong><strong>[</strong>4<strong>]</strong><strong>;</strong></li>
+<li><a name="a47"></a>    <strong>} </strong></li>
+<li><a name="a48"></a>  <strong>}</strong></li>
+<li><a name="a49"></a>  </li>
+<li><a name="a50"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a51"></a>  <strong>{</strong></li>
+<li><a name="a52"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;class c_dpUbicacion &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a53"></a>      echo <font color="#66cccc">&quot;ubi_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_codigo">ubi_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a54"></a>    echo <font color="#66cccc">&quot;datpro_id:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$datpro_id">datpro_id</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a55"></a>    echo <font color="#66cccc">&quot;pro_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a56"></a>    echo <font color="#66cccc">&quot;can_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a57"></a>    echo <font color="#66cccc">&quot;par_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a58"></a>    </li>
+<li><a name="a59"></a>    echo <font color="#66cccc">&quot;ubi_comunidad:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a60"></a>    echo <font color="#66cccc">&quot;ubi_observacion:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a61"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a62"></a>  <strong>}  </strong></li>
+<li><a name="a63"></a>  </li>
+<li><a name="a64"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodsetear">setear</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a65"></a>  <strong>{</strong></li>
+<li><a name="a66"></a>      <font color="blue">if</font><strong>((</strong><a href="http://www.php.net/strlen">strlen</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a><strong>)</strong>==0<strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>==<font color="#66cccc">&quot;-&quot;</font><strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>==<font color="#66cccc">&quot;0&quot;</font><strong>))</strong></li>
+<li><a name="a67"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>=0<strong>;</strong></li>
+<li><a name="a68"></a>      <font color="blue">if</font><strong>((</strong><a href="http://www.php.net/strlen">strlen</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a><strong>)</strong>==0<strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>==<font color="#66cccc">&quot;-&quot;</font><strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>==<font color="#66cccc">&quot;0&quot;</font><strong>))</strong></li>
+<li><a name="a69"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>=0<strong>;  </strong></li>
+<li><a name="a70"></a>  <strong>}</strong></li>
+<li><a name="a71"></a>  </li>
+<li><a name="a72"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a73"></a>  <strong>{</strong></li>
+<li><a name="a74"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#methodsetear">setear</a><strong>(</strong><strong>)</strong><strong>;</strong><font color="green">//pone cero en los valores q no han sido escogidos</font></li>
+<li><a name="a75"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select ubi_codigo from dp_ubicacion &quot;</font></li>
+<li><a name="a76"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where pro_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a> </font><font color="#66cccc">&quot;</li>
+<li><a name="a77"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">and can_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a> and par_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a> </font><font color="#66cccc">&quot;</li>
+<li><a name="a78"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">and datpro_id=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$datpro_id">datpro_id</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a79"></a>      <font color="green">//echo &quot;$sql&quot;;    </font></li>
+<li><a name="a80"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a81"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a82"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a83"></a>    else</li>
+<li><a name="a84"></a>      <strong>$res</strong>=0<strong>; </strong></li>
+<li><a name="a85"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a86"></a>  <strong>}  </strong></li>
+<li><a name="a87"></a>  </li>
+<li><a name="a88"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a88"></a>  </li>
+<li><a name="a89"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a90"></a>  <strong>{</strong></li>
+<li><a name="a91"></a>      <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a92"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a93"></a>    <strong>{</strong></li>
+<li><a name="a94"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into dp_ubicacion&quot;</font></li>
+<li><a name="a95"></a>            .<font color="#66cccc">&quot; (datpro_id,pro_codigo,can_codigo,par_codigo,&quot;</font></li>
+<li><a name="a96"></a>            .<font color="#66cccc">&quot;ubi_comunidad,ubi_observacion)&quot;</font></li>
+<li><a name="a97"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a98"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$datpro_id">datpro_id</a>,<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a>,<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>,<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>,</font><font color="#66cccc">&quot;</li>
+<li><a name="a99"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>')</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a100"></a>      <font color="green">//echo &quot;&lt;br&gt;$sql&lt;br&gt;&quot;;        </font></li>
+<li><a name="a101"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a102"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a103"></a>      <strong>{</strong></li>
+<li><a name="a104"></a>        <font color="green">//recuperar el id del dp_ubicaciones insertado, ubi_codigo</font></li>
+<li><a name="a105"></a>        <strong>$nid</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a106"></a>      <strong>}</strong></li>
+<li><a name="a107"></a>      else</li>
+<li><a name="a108"></a>        <strong>$nid</strong>=0<strong>;</strong></li>
+<li><a name="a109"></a>    <strong>}</strong></li>
+<li><a name="a110"></a>    else</li>
+<li><a name="a111"></a>      <strong>$nid</strong>=0<strong>;  </strong></li>
+<li><a name="a112"></a>      </li>
+<li><a name="a113"></a>    <font color="blue">return</font><strong>(</strong><strong>$nid</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a114"></a>  <strong>}</strong></li>
+<li><a name="a115"></a>  </li>
+<li><a name="a116"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a117"></a>  <strong>{</strong></li>
+<li><a name="a118"></a>     <font color="green">//$this-&gt;con-&gt;debug=true;</font></li>
+<li><a name="a119"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;delete from dp_ubicacion &quot;</font></li>
+<li><a name="a120"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where ubi_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a121"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a122"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a123"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a124"></a>    else</li>
+<li><a name="a125"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a126"></a>  <strong>}</strong></li>
+<li><a name="a127"></a>  </li>
+<li><a name="a128"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methoddelxdatpro">delxdatpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a129"></a>  <strong>{</strong></li>
+<li><a name="a130"></a>     <font color="green">//$this-&gt;con-&gt;debug=true;</font></li>
+<li><a name="a131"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;delete from dp_ubicacion &quot;</font></li>
+<li><a name="a132"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$datpro</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a133"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a134"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a135"></a>      <font color="blue">return </font><strong>$datpro</strong><strong>;</strong></li>
+<li><a name="a136"></a>    else</li>
+<li><a name="a137"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a138"></a>  <strong>}</strong></li>
+<li><a name="a139"></a>  </li>
+<li><a name="a140"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a141"></a>  <strong>{</strong></li>
+<li><a name="a142"></a>    <strong>$aux</strong>=new <a href="../default/c_dpUbicacion.html#methodc_dpUbicacion">c_dpUbicacion</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a143"></a>    <strong>$res</strong>=<strong>$aux</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a144"></a>      <font color="blue">if</font><strong>(</strong><strong>$res</strong>!=0<strong>)</strong></li>
+<li><a name="a145"></a>      <strong>{</strong></li>
+<li><a name="a146"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE dp_ubicacion &quot;</font></li>
+<li><a name="a147"></a>          .<font color="#66cccc">&quot;set &quot;</font></li>
+<li><a name="a148"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">ubi_comunidad='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a149"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">ubi_observacion='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a150"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">WHERE ubi_codigo=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a151"></a><font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a152"></a><font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a153"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a154"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a155"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a156"></a>    else</li>
+<li><a name="a157"></a>      <font color="blue">return </font>0<strong>;    </strong></li>
+<li><a name="a158"></a>      <strong>}</strong></li>
+<li><a name="a159"></a>  <strong>}</strong></li>
+<li><a name="a160"></a>&nbsp;</li>
+<li><a name="a161"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a162"></a>  <strong>{</strong></li>
+<li><a name="a163"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select datpro_id,can_codigo,pro_codigo,par_codigo,&quot;</font></li>
+<li><a name="a164"></a>          .<font color="#66cccc">&quot;ubi_comunidad,ubi_observacion &quot;</font></li>
+<li><a name="a165"></a>          .<font color="#66cccc">&quot;from dp_ubicacion &quot;</font></li>
+<li><a name="a166"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where ubi_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a167"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a168"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a169"></a>      <strong>{</strong></li>
+<li><a name="a170"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_codigo">ubi_codigo</a>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a171"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$datpro_id">datpro_id</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a172"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a173"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a174"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>3<strong>]</strong><strong>;</strong></li>
+<li><a name="a175"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_comunidad">ubi_comunidad</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>4<strong>]</strong><strong>;</strong></li>
+<li><a name="a176"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$ubi_observacion">ubi_observacion</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>5<strong>]</strong><strong>;</strong></li>
+<li><a name="a177"></a>        </li>
+<li><a name="a178"></a>        <strong>$res</strong>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a179"></a>    <strong>}</strong></li>
+<li><a name="a180"></a>    else</li>
+<li><a name="a181"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a182"></a>      </li>
+<li><a name="a183"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a184"></a>  <strong>}</strong></li>
+<li><a name="a185"></a>  </li>
+<li><a name="a186"></a>  <font color="blue">function </font><a href="../default/c_dpUbicacion.html#methodtotalpoblacion">totalpoblacion</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a187"></a>  <strong>{</strong></li>
+<li><a name="a188"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a189"></a>      </li>
+<li><a name="a190"></a>      <font color="green">//si se escogio solo provincia pero no canton y parroquia</font></li>
+<li><a name="a191"></a>      <font color="blue">if</font><strong>((</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>==0<strong>)</strong>&amp;&amp;<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>==0<strong>))</strong></li>
+<li><a name="a192"></a>      <strong>{</strong></li>
+<li><a name="a193"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;select sum(par.par_poblacion) &quot;</font></li>
+<li><a name="a194"></a>              .<font color="#66cccc">&quot;from canton can,parroquia par &quot;</font></li>
+<li><a name="a195"></a>              .<font color="#66cccc">&quot;<font color="#66cccc">where can.pro_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$pro_codigo">pro_codigo</a> </font><font color="#66cccc">&quot;</li>
+<li><a name="a196"></a>              .<font color="#66cccc">&quot;and par.can_codigo=can.can_codigo &quot;</font><strong>;</strong></li>
+<li><a name="a197"></a>      <strong>}</strong></li>
+<li><a name="a198"></a>      <font color="blue">if</font><strong>((</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a>!=0<strong>)</strong>&amp;&amp;<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>==0<strong>))</strong></li>
+<li><a name="a199"></a>      <strong>{</strong></li>
+<li><a name="a200"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;select sum(par.par_poblacion) &quot;</font></li>
+<li><a name="a201"></a>              .<font color="#66cccc">&quot;from canton can,parroquia par &quot;</font></li>
+<li><a name="a202"></a>              .<font color="#66cccc">&quot;<font color="#66cccc">where can.can_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$can_codigo">can_codigo</a> </font><font color="#66cccc">&quot;</li>
+<li><a name="a203"></a>              .<font color="#66cccc">&quot;and par.can_codigo=can.can_codigo &quot;</font><strong>;    </strong></li>
+<li><a name="a204"></a>      <strong>}</strong></li>
+<li><a name="a205"></a>      <font color="blue">if</font><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a>!=0<strong>)</strong></li>
+<li><a name="a206"></a>      <strong>{</strong></li>
+<li><a name="a207"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;select sum(par.par_poblacion) &quot;</font></li>
+<li><a name="a208"></a>              .<font color="#66cccc">&quot;from parroquia par &quot;</font></li>
+<li><a name="a209"></a>              .<font color="#66cccc">&quot;<font color="#66cccc">where par.par_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$par_codigo">par_codigo</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a210"></a>      <strong>}</strong></li>
+<li><a name="a211"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpUbicacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a212"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a213"></a>      <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a214"></a>  <strong>} </strong></li>
+<li><a name="a215"></a>       </li>
+<li><a name="a216"></a><strong>}</strong></li>
+<li><a name="a217"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:31 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

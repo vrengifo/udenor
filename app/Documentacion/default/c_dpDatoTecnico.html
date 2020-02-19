@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class c_dpDatoTecnico</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class c_dpDatoTecnico
+</h2> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a7">7</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+</pre>
+<p>
+	<b><i>Located in File: <a href="_c_dpDatoTecnico_php.html">/c_dpDatoTecnico.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Clase usada para registrar los valores de los datos técnicos al ingresar el proyecto</h5>
+<ul>
+	</ul>
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$con" title="details" class="property"><strong>$con</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$datpro_id" title="details" class="property"><strong>$datpro_id</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_beneficiario" title="details" class="property"><strong>$dattec_beneficiario</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_codigo" title="details" class="property"><strong>$dattec_codigo</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_duracion" title="details" class="property"><strong>$dattec_duracion</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_ffinal" title="details" class="property"><strong>$dattec_ffinal</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_finicio" title="details" class="property"><strong>$dattec_finicio</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$dattec_monto" title="details" class="property"><strong>$dattec_monto</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$estdes_codigo" title="details" class="property"><strong>$estdes_codigo</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$fcorta" title="details" class="property"><strong>$fcorta</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$mon_codigo" title="details" class="property"><strong>$mon_codigo</strong></a>
+</div>
+<hr />
+<a name="var$con" id="var$con"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$con</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a20">20</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$datpro_id" id="var$datpro_id"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$datpro_id</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a10">10</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_beneficiario" id="var$dattec_beneficiario"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_beneficiario</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a15">15</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_codigo" id="var$dattec_codigo"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_codigo</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a9">9</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_duracion" id="var$dattec_duracion"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_duracion</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a14">14</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_ffinal" id="var$dattec_ffinal"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_ffinal</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a13">13</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_finicio" id="var$dattec_finicio"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_finicio</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a12">12</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$dattec_monto" id="var$dattec_monto"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dattec_monto</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a17">17</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$estdes_codigo" id="var$estdes_codigo"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$estdes_codigo</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a11">11</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$fcorta" id="var$fcorta"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$fcorta</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a22">22</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$mon_codigo" id="var$mon_codigo"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$mon_codigo</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a18">18</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="constantsTabpage">
+
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+				
+    <div class="method-definition">
+            <span class="method-result">c_dpDatoTecnico</span>
+        <a href="#methodc_dpDatoTecnico" title="details" class="method-name">c_dpDatoTecnico</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$conBd</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodactualizarmonto" title="details" class="method-name">actualizarmonto</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodadd" title="details" class="method-name">add</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodbuscarxdatpro" title="details" class="method-name">buscarxdatpro</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$datpro</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodbuscarxpro" title="details" class="method-name">buscarxpro</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$datpro</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcalcularmonto" title="details" class="method-name">calcularmonto</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcargar_dato" title="details" class="method-name">cargar_dato</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dato</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcrearoactualizar" title="details" class="method-name">crearoactualizar</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddel" title="details" class="method-name">del</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddelxdatpro" title="details" class="method-name">delxdatpro</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$datpro</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinfo" title="details" class="method-name">info</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodmostrar_dato" title="details" class="method-name">mostrar_dato</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsetear" title="details" class="method-name">setear</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodupdate" title="details" class="method-name">update</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodvalidar" title="details" class="method-name">validar</a>
+        ()
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodc_dpDatoTecnico" id="methodc_dpDatoTecnico"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor c_dpDatoTecnico</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a26">26</a></span>)
+ </h4> 
+<h4><i>c_dpDatoTecnico</i> <strong>c_dpDatoTecnico(
+mixed
+$conBd)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodactualizarmonto" id="methodactualizarmonto"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method actualizarmonto</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a255">255</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>actualizarmonto(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodadd" id="methodadd"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method add</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a123">123</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>add(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodbuscarxdatpro" id="methodbuscarxdatpro"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method buscarxdatpro</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a263">263</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>buscarxdatpro(
+mixed
+$datpro)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodbuscarxpro" id="methodbuscarxpro"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method buscarxpro</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a200">200</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>buscarxpro(
+mixed
+$datpro)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcalcularmonto" id="methodcalcularmonto"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method calcularmonto</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a238">238</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>calcularmonto(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcargar_dato" id="methodcargar_dato"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method cargar_dato</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a49">49</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>cargar_dato(
+mixed
+$dato)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcrearoactualizar" id="methodcrearoactualizar"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method crearoactualizar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a108">108</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>crearoactualizar(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methoddel" id="methoddel"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method del</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a149">149</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>del(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methoddelxdatpro" id="methoddelxdatpro"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method delxdatpro</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a160">160</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>delxdatpro(
+mixed
+$datpro)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodinfo" id="methodinfo"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method info</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a211">211</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>info(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodmostrar_dato" id="methodmostrar_dato"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method mostrar_dato</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a66">66</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>mostrar_dato(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodsetear" id="methodsetear"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method setear</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a82">82</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>setear(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodupdate" id="methodupdate"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method update</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a171">171</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>update(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodvalidar" id="methodvalidar"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method validar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_dpDatoTecnico.php.html#a90">90</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>validar(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:29 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

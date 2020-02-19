@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_tipoDocumento.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_tipoDocumento.php</h1>
+<p>Documentation is available at <a href="../default/_c_tipoDocumento_php.html">c_tipoDocumento.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para tipo_documento</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para administrar los tipos de documentos cuando se ingresa la información de los proyectos</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_tipoDocumento.html">c_tipoDocumento</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_tipoDocumento.html#var$tipdoc_codigo">$tipdoc_codigo</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">$tipdoc_nombre</a><strong>;</strong></li>
+<li><a name="a11"></a>  </li>
+<li><a name="a12"></a>  <font color="blue">var </font><a href="../default/c_tipoDocumento.html#var$con">$con</a><strong>;</strong><font color="green">//conexión a base de datos</font></li>
+<li><a name="a13"></a>&nbsp;</li>
+<li><a name="a14"></a>  <font color="green">//constructor</font></li>
+<li><a name="a14"></a>  </li>
+<li><a name="a15"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodc_tipoDocumento">c_tipoDocumento</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a16"></a>  <strong>{</strong></li>
+<li><a name="a17"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_codigo">tipdoc_codigo</a>=0<strong>;</strong></li>
+<li><a name="a18"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>=<font color="#66cccc">&quot;&quot;</font><strong>;      </strong></li>
+<li><a name="a19"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a20"></a>  <strong>}  </strong></li>
+<li><a name="a21"></a>&nbsp;</li>
+<li><a name="a22"></a>  <font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a22"></a>  </li>
+<li><a name="a23"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a24"></a>  <strong>{</strong></li>
+<li><a name="a25"></a>    <strong>$ncampos</strong>=1<strong>;</strong></li>
+<li><a name="a26"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a27"></a>    <strong>{</strong></li>
+<li><a name="a28"></a>      <font color="green">//$this-&gt;tipdoc_codigo=$dato[0];</font></li>
+<li><a name="a29"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;      </strong></li>
+<li><a name="a30"></a>    <strong>} </strong></li>
+<li><a name="a31"></a>  <strong>}</strong></li>
+<li><a name="a32"></a>  </li>
+<li><a name="a33"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a34"></a>  <strong>{</strong></li>
+<li><a name="a35"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a36"></a>    echo <font color="#66cccc">&quot;clase c_tipo_documento &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a37"></a>      echo <font color="#66cccc">&quot;tipdoc_codigo: &quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_codigo">tipdoc_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a38"></a>    echo <font color="#66cccc">&quot;tipdoc_nombre: &quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a39"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a40"></a>  <strong>}  </strong></li>
+<li><a name="a41"></a>  </li>
+<li><a name="a42"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a43"></a>  <strong>{</strong></li>
+<li><a name="a44"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select count(tipdoc_codigo) cuantos from tipo_documento where tipdoc_nombre='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>'</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a45"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a46"></a>    <strong>$cuantos</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a47"></a>    <font color="blue">return </font><strong>(</strong><strong>$cuantos</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a48"></a>  <strong>}</strong></li>
+<li><a name="a49"></a>&nbsp;</li>
+<li><a name="a50"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodbuscar">buscar</a><strong>(</strong><strong>$nombre</strong><strong>)</strong></li>
+<li><a name="a51"></a>  <strong>{</strong></li>
+<li><a name="a52"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select tipdoc_codigo from tipo_documento where tipdoc_nombre='<strong>$nombre</strong>' </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a53"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a54"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a55"></a>      <strong>{</strong></li>
+<li><a name="a56"></a>        <strong>$res</strong>=0<strong>;    </strong></li>
+<li><a name="a57"></a>      <strong>}</strong></li>
+<li><a name="a58"></a>      else</li>
+<li><a name="a59"></a>      <strong>{</strong></li>
+<li><a name="a60"></a>        <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;    </strong></li>
+<li><a name="a61"></a>      <strong>}</strong></li>
+<li><a name="a62"></a>      <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a63"></a>  <strong>} </strong></li>
+<li><a name="a64"></a>  </li>
+<li><a name="a65"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a65"></a>  </li>
+<li><a name="a66"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a67"></a>  <strong>{</strong></li>
+<li><a name="a68"></a>    <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a69"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a70"></a>    <strong>{</strong></li>
+<li><a name="a71"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into tipo_documento&quot;</font></li>
+<li><a name="a72"></a>            .<font color="#66cccc">&quot; (tipdoc_nombre)&quot;</font></li>
+<li><a name="a73"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a74"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>')</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a75"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a76"></a>    <strong>}  </strong></li>
+<li><a name="a77"></a>      <font color="green">//echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a78"></a>      <font color="green">//$this-&gt;mostrar_dato();    </font></li>
+<li><a name="a79"></a>    <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#methodbuscar">buscar</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a><strong>)</strong><strong>;  </strong></li>
+<li><a name="a80"></a>    <font color="blue">return  </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;        </strong></li>
+<li><a name="a81"></a>  <strong>}</strong></li>
+<li><a name="a82"></a>  </li>
+<li><a name="a83"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a84"></a>  <strong>{</strong></li>
+<li><a name="a85"></a>     <strong>$sql</strong>=<font color="#66cccc">&quot;delete from tipo_documento &quot;</font></li>
+<li><a name="a86"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">where tipdoc_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a87"></a>    <font color="green">//echo &quot;&lt;hr&gt;$sql&lt;hr&gt;&quot;;        </font></li>
+<li><a name="a88"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a89"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a90"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a91"></a>    else</li>
+<li><a name="a92"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a93"></a>  <strong>}</strong></li>
+<li><a name="a94"></a>  </li>
+<li><a name="a95"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a96"></a>  <strong>{</strong></li>
+<li><a name="a97"></a>    <font color="green">//buscar si existe el nuevo nombre</font></li>
+<li><a name="a98"></a>    <strong>$existe</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#methodbuscar">buscar</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a99"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$existe</strong><strong>)</strong></li>
+<li><a name="a100"></a>    <strong>{    </strong></li>
+<li><a name="a101"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE tipo_documento&quot;</font></li>
+<li><a name="a102"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"> set tipdoc_nombre='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a103"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"> WHERE tipdoc_codigo=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a104"></a>  <font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a105"></a>  <font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a106"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a107"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a108"></a>    <strong>}</strong></li>
+<li><a name="a109"></a>    else </li>
+<li><a name="a110"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a111"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;        </strong></li>
+<li><a name="a112"></a>  <strong>}    </strong></li>
+<li><a name="a113"></a>&nbsp;</li>
+<li><a name="a114"></a>  <font color="blue">function </font><a href="../default/c_tipoDocumento.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a115"></a>  <strong>{</strong></li>
+<li><a name="a116"></a>    <strong>$sql</strong>=<font color="#66cccc">&quot;select tipdoc_codigo,tipdoc_nombre from tipo_documento  &quot;</font></li>
+<li><a name="a117"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where tipdoc_codigo=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a118"></a>    <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a119"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a120"></a>    <strong>{</strong></li>
+<li><a name="a121"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_codigo">tipdoc_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a122"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_tipoDocumento.html#var$tipdoc_nombre">tipdoc_nombre</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a123"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a124"></a>    <strong>}</strong></li>
+<li><a name="a125"></a>    else</li>
+<li><a name="a126"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a127"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a128"></a>  <strong>}</strong></li>
+<li><a name="a129"></a>&nbsp;</li>
+<li><a name="a130"></a><strong>}</strong></li>
+<li><a name="a131"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:44 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

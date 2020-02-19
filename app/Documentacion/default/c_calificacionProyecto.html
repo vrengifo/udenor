@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class c_calificacionProyecto</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class c_calificacionProyecto
+</h2> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a7">7</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+</pre>
+<p>
+	<b><i>Located in File: <a href="_c_calificacionProyecto_php.html">/c_calificacionProyecto.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Clase usada para administrar los valores generados al calificar un proyecto una vez que han sido ingresados los valores de priorización</h5>
+<ul>
+	</ul>
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_ambiental" title="details" class="property"><strong>$cal_ambiental</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_ambientalc" title="details" class="property"><strong>$cal_ambientalc</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_ambientalval" title="details" class="property"><strong>$cal_ambientalval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecoga" title="details" class="property"><strong>$cal_benecoga</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecogac" title="details" class="property"><strong>$cal_benecogac</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecogaval" title="details" class="property"><strong>$cal_benecogaval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecotir" title="details" class="property"><strong>$cal_benecotir</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecotirc" title="details" class="property"><strong>$cal_benecotirc</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecotirval" title="details" class="property"><strong>$cal_benecotirval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecovan" title="details" class="property"><strong>$cal_benecovan</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecovanc" title="details" class="property"><strong>$cal_benecovanc</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_benecovanval" title="details" class="property"><strong>$cal_benecovanval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_beneficiosocial" title="details" class="property"><strong>$cal_beneficiosocial</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_beneficiosocialc" title="details" class="property"><strong>$cal_beneficiosocialc</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_beneficiosocialval" title="details" class="property"><strong>$cal_beneficiosocialval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_concordancia" title="details" class="property"><strong>$cal_concordancia</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_concordanciac" title="details" class="property"><strong>$cal_concordanciac</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_concordanciaval" title="details" class="property"><strong>$cal_concordanciaval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_contrapartida" title="details" class="property"><strong>$cal_contrapartida</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_contrapartidac" title="details" class="property"><strong>$cal_contrapartidac</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_contrapartidaval" title="details" class="property"><strong>$cal_contrapartidaval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_vialidad" title="details" class="property"><strong>$cal_vialidad</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_vialidadc" title="details" class="property"><strong>$cal_vialidadc</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$cal_vialidadval" title="details" class="property"><strong>$cal_vialidadval</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$con" title="details" class="property"><strong>$con</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$datpro_id" title="details" class="property"><strong>$datpro_id</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$debug" title="details" class="property"><strong>$debug</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$fcorta" title="details" class="property"><strong>$fcorta</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$separador" title="details" class="property"><strong>$separador</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$total_puntaje" title="details" class="property"><strong>$total_puntaje</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$total_sobre" title="details" class="property"><strong>$total_sobre</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$usu_audit" title="details" class="property"><strong>$usu_audit</strong></a>
+</div>
+<div class="var-title">
+    <span class="var-type">mixed</span>
+    <a href="#var$usu_faudit" title="details" class="property"><strong>$usu_faudit</strong></a>
+</div>
+<hr />
+<a name="var$cal_ambiental" id="var$cal_ambiental"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_ambiental</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a40">40</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_ambientalc" id="var$cal_ambientalc"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_ambientalc</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a41">41</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_ambientalval" id="var$cal_ambientalval"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_ambientalval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a42">42</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecoga" id="var$cal_benecoga"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecoga</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a28">28</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecogac" id="var$cal_benecogac"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecogac</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a29">29</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecogaval" id="var$cal_benecogaval"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecogaval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a30">30</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecotir" id="var$cal_benecotir"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecotir</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a20">20</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecotirc" id="var$cal_benecotirc"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecotirc</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a21">21</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecotirval" id="var$cal_benecotirval"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecotirval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a22">22</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecovan" id="var$cal_benecovan"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecovan</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a24">24</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecovanc" id="var$cal_benecovanc"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecovanc</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a25">25</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_benecovanval" id="var$cal_benecovanval"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_benecovanval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a26">26</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_beneficiosocial" id="var$cal_beneficiosocial"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_beneficiosocial</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a16">16</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_beneficiosocialc" id="var$cal_beneficiosocialc"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_beneficiosocialc</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a17">17</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_beneficiosocialval" id="var$cal_beneficiosocialval"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_beneficiosocialval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a18">18</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_concordancia" id="var$cal_concordancia"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_concordancia</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a11">11</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_concordanciac" id="var$cal_concordanciac"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_concordanciac</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a12">12</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_concordanciaval" id="var$cal_concordanciaval"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_concordanciaval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a13">13</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_contrapartida" id="var$cal_contrapartida"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_contrapartida</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a36">36</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_contrapartidac" id="var$cal_contrapartidac"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_contrapartidac</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a37">37</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_contrapartidaval" id="var$cal_contrapartidaval"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_contrapartidaval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a38">38</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_vialidad" id="var$cal_vialidad"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_vialidad</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a32">32</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_vialidadc" id="var$cal_vialidadc"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_vialidadc</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a33">33</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$cal_vialidadval" id="var$cal_vialidadval"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$cal_vialidadval</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a34">34</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$con" id="var$con"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$con</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a52">52</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$datpro_id" id="var$datpro_id"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$datpro_id</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a9">9</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$debug" id="var$debug"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$debug</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a53">53</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$fcorta" id="var$fcorta"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$fcorta</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a54">54</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$separador" id="var$separador"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$separador</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a50">50</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$total_puntaje" id="var$total_puntaje"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$total_puntaje</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a45">45</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$total_sobre" id="var$total_sobre"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$total_sobre</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a44">44</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$usu_audit" id="var$usu_audit"><!-- --></A>
+<div style="background='#ffffff'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$usu_audit</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a47">47</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<a name="var$usu_faudit" id="var$usu_faudit"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$usu_faudit</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a48">48</a></span>)
+ </h4>
+<h4>Data type : mixed</h4>
+<!-- ========== Info from phpDoc block ========= -->
+<ul>
+	</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="constantsTabpage">
+
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+				
+    <div class="method-definition">
+            <span class="method-result">c_calificacionProyecto</span>
+        <a href="#methodc_calificacionProyecto" title="details" class="method-name">c_calificacionProyecto</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$conBd</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$usuario</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodadd" title="details" class="method-name">add</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodbuscarvalor" title="details" class="method-name">buscarvalor</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$valor</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcalculartotal" title="details" class="method-name">calculartotal</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcalificar" title="details" class="method-name">calificar</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$msg</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcargar_dato" title="details" class="method-name">cargar_dato</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dato</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodcrearoactualizar" title="details" class="method-name">crearoactualizar</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoddel" title="details" class="method-name">del</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodevaluar" title="details" class="method-name">evaluar</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$cad</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinfo" title="details" class="method-name">info</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodmostrar_dato" title="details" class="method-name">mostrar_dato</a>
+        ()
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodsepuedeCalificar" title="details" class="method-name">sepuedeCalificar</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$cad</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodupdate" title="details" class="method-name">update</a>
+        (<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+        </div>
+				
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodvalidar" title="details" class="method-name">validar</a>
+        ()
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="methodc_calificacionProyecto" id="methodc_calificacionProyecto"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor c_calificacionProyecto</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a58">58</a></span>)
+ </h4> 
+<h4><i>c_calificacionProyecto</i> <strong>c_calificacionProyecto(
+mixed
+$conBd, mixed
+$usuario)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodadd" id="methodadd"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method add</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a173">173</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>add(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodbuscarvalor" id="methodbuscarvalor"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method buscarvalor</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a445">445</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>buscarvalor(
+mixed
+$item, mixed
+$valor)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcalculartotal" id="methodcalculartotal"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method calculartotal</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a437">437</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>calculartotal(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcalificar" id="methodcalificar"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method calificar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a366">366</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>calificar(
+mixed
+$id, mixed
+&$msg)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcargar_dato" id="methodcargar_dato"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method cargar_dato</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a97">97</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>cargar_dato(
+mixed
+$dato)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodcrearoactualizar" id="methodcrearoactualizar"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method crearoactualizar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a158">158</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>crearoactualizar(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methoddel" id="methoddel"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method del</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a217">217</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>del(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodevaluar" id="methodevaluar"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method evaluar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a483">483</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>evaluar(
+mixed
+$cad)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodinfo" id="methodinfo"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method info</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a261">261</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>info(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodmostrar_dato" id="methodmostrar_dato"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method mostrar_dato</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a102">102</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>mostrar_dato(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodsepuedeCalificar" id="methodsepuedeCalificar"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method sepuedeCalificar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a310">310</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>sepuedeCalificar(
+mixed
+$id, mixed
+&$cad)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodupdate" id="methodupdate"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method update</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a228">228</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>update(
+mixed
+$id)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<a name="methodvalidar" id="methodvalidar"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method validar</strong> (line <span class="linenumber"><a href="..//__filesource/fsource_default__c_calificacionProyecto.php.html#a146">146</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>validar(
+)</strong></h4>
+
+<!-- ========== Info from phpDoc block ========= -->
+		
+	<h4>Info</h4>
+	<ul>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+	</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:25 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

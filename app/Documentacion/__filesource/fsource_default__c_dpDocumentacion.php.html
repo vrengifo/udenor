@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_dpDocumentacion.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_dpDocumentacion.php</h1>
+<p>Documentation is available at <a href="../default/_c_dpDocumentacion_php.html">c_dpDocumentacion.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para dp_documentacion</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para administrar los valores de la documentación que tiene el proyecto al ingresar sus datos</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_dpDocumentacion.html">c_dpDocumentacion</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$doc_codigo">$doc_codigo</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$datpro_id">$datpro_id</a><strong>;</strong></li>
+<li><a name="a11"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">$tipdoc_codigo</a><strong>;</strong></li>
+<li><a name="a12"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">$doc_codigosis</a><strong>;</strong></li>
+<li><a name="a13"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$doc_nombre">$doc_nombre</a><strong>;  </strong></li>
+<li><a name="a14"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$doc_path">$doc_path</a><strong>;</strong></li>
+<li><a name="a15"></a>&nbsp;</li>
+<li><a name="a16"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$separador">$separador</a><strong>;</strong></li>
+<li><a name="a17"></a>  </li>
+<li><a name="a18"></a>  <font color="blue">var </font><a href="../default/c_dpDocumentacion.html#var$con">$con</a><strong>;</strong></li>
+<li><a name="a19"></a>&nbsp;</li>
+<li><a name="a20"></a>  </li>
+<li><a name="a21"></a>  <font color="green">//constructor</font></li>
+<li><a name="a21"></a>  </li>
+<li><a name="a22"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodc_dpDocumentacion">c_dpDocumentacion</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a23"></a>  <strong>{</strong></li>
+<li><a name="a24"></a>        <font color="blue">include_once</font><strong>(</strong><font color="#66cccc">&quot;class/c_datoProyecto.php&quot;</font><strong>)</strong><strong>;</strong></li>
+<li><a name="a25"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigo">doc_codigo</a>=0<strong>;</strong></li>
+<li><a name="a26"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a>=0<strong>;      </strong></li>
+<li><a name="a27"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a28"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">tipdoc_codigo</a>=0<strong>;</strong></li>
+<li><a name="a29"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a30"></a>      </li>
+<li><a name="a31"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a32"></a>      </li>
+<li><a name="a33"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a34"></a>      </li>
+<li><a name="a35"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$separador">separador</a>=<font color="#66cccc">&quot;.&quot;</font><strong>;</strong></li>
+<li><a name="a36"></a>  <strong>}  </strong></li>
+<li><a name="a37"></a>  </li>
+<li><a name="a38"></a><font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a38"></a>  </li>
+<li><a name="a39"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a40"></a>  <strong>{</strong></li>
+<li><a name="a41"></a>    <strong>$ncampos</strong>=3<strong>;</strong></li>
+<li><a name="a42"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a43"></a>    <strong>{</strong></li>
+<li><a name="a44"></a>      <font color="green">//$this-&gt;datpro_id=$dato[0];</font></li>
+<li><a name="a45"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">tipdoc_codigo</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a46"></a>      <font color="green">//$this-&gt;doc_codigosis=$dato[1];      </font></li>
+<li><a name="a47"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>=<strong>$dato</strong><strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a48"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>=<strong>$dato</strong><strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a49"></a>    <strong>} </strong></li>
+<li><a name="a50"></a>  <strong>}</strong></li>
+<li><a name="a51"></a>  </li>
+<li><a name="a52"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a53"></a>  <strong>{</strong></li>
+<li><a name="a54"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;class c_dpDocumentacion &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a55"></a>      echo <font color="#66cccc">&quot;doc_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigo">doc_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a56"></a>    echo <font color="#66cccc">&quot;datpro_id:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a57"></a>    echo <font color="#66cccc">&quot;tipdoc_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">tipdoc_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a58"></a>    echo <font color="#66cccc">&quot;doc_codigosis:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a59"></a>    echo <font color="#66cccc">&quot;doc_nombre:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a60"></a>    echo <font color="#66cccc">&quot;doc_path:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a61"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a62"></a>  <strong>}  </strong></li>
+<li><a name="a63"></a>  </li>
+<li><a name="a64"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodsetear">setear</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a65"></a>  <strong>{</strong></li>
+<li><a name="a66"></a>      <strong>$cdatPro</strong>=new <a href="../default/c_datoProyecto.html">c_datoProyecto</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a67"></a>      <strong>$cdatPro</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a68"></a>      </li>
+<li><a name="a69"></a>      <strong>$aux</strong>=new <a href="../default/c_dpDocumentacion.html#methodc_dpDocumentacion">c_dpDocumentacion</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a70"></a>      </li>
+<li><a name="a71"></a>      </li>
+<li><a name="a72"></a>      <strong>$existe</strong>=<strong>$aux</strong><strong>-&gt;</strong>tienedocumentos<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a73"></a>      </li>
+<li><a name="a74"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$existe</strong><strong>)</strong></li>
+<li><a name="a75"></a>      <strong>{</strong></li>
+<li><a name="a76"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>=<strong>$cdatPro</strong><strong>-&gt;</strong>datpro_codigo.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$separador">separador</a>.<font color="#66cccc">&quot;1&quot;</font><strong>;    </strong></li>
+<li><a name="a77"></a>      <strong>}</strong></li>
+<li><a name="a78"></a>      else </li>
+<li><a name="a79"></a>      <strong>{</strong></li>
+<li><a name="a80"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select max(doc_codigosis) from dp_documentacion where datpro_id=<strong>$cdatPro</strong><strong>-&gt;</strong>datpro_id </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a81"></a>        <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a82"></a>        <strong>$mayor</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a83"></a>        </li>
+<li><a name="a84"></a>        list<strong>(</strong><strong>$codigo</strong><strong>,</strong><strong>$nactual</strong><strong>)</strong>=<a href="http://www.php.net/explode">explode</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$separador">separador</a><strong>,</strong><strong>$mayor</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a85"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>=<strong>$codigo</strong>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$separador">separador</a>.<strong>(</strong><strong>$nactual</strong>+1<strong>)</strong><strong>;</strong></li>
+<li><a name="a86"></a>      <strong>} </strong></li>
+<li><a name="a87"></a>  <strong>}</strong></li>
+<li><a name="a88"></a>  </li>
+<li><a name="a89"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodtienedocumentos">tienedocumentos</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a90"></a>  <strong>{</strong></li>
+<li><a name="a91"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select count(doc_codigo) from dp_documentacion &quot;</font></li>
+<li><a name="a92"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$datpro</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a93"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a94"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a95"></a>      <font color="blue">return</font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a96"></a>  <strong>}</strong></li>
+<li><a name="a97"></a>  </li>
+<li><a name="a98"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a99"></a>  <strong>{</strong></li>
+<li><a name="a100"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select doc_codigo from dp_documentacion &quot;</font></li>
+<li><a name="a101"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where doc_codigosis='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a102"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">and datpro_id=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a103"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a104"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a105"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a106"></a>    else</li>
+<li><a name="a107"></a>      <strong>$res</strong>=0<strong>; </strong></li>
+<li><a name="a108"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a109"></a>  <strong>}  </strong></li>
+<li><a name="a110"></a>  </li>
+<li><a name="a111"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a111"></a>  </li>
+<li><a name="a112"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a113"></a>  <strong>{</strong></li>
+<li><a name="a114"></a>      <font color="green">//$this-&gt;con-&gt;debug=true;</font></li>
+<li><a name="a115"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#methodsetear">setear</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a116"></a>      <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a117"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a118"></a>    <strong>{</strong></li>
+<li><a name="a119"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into dp_documentacion&quot;</font></li>
+<li><a name="a120"></a>            .<font color="#66cccc">&quot; (datpro_id,tipdoc_codigo,doc_codigosis,doc_nombre,&quot;</font></li>
+<li><a name="a121"></a>            .<font color="#66cccc">&quot;doc_path)&quot;</font></li>
+<li><a name="a122"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a123"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a>,<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">tipdoc_codigo</a>,'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a124"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>')</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a125"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a126"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a127"></a>      <strong>{</strong></li>
+<li><a name="a128"></a>        <font color="green">//recuperar el id del dp_documentaciones insertado, doc_codigo</font></li>
+<li><a name="a129"></a>        <strong>$nid</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a130"></a>      <strong>}</strong></li>
+<li><a name="a131"></a>      else</li>
+<li><a name="a132"></a>        <strong>$nid</strong>=0<strong>;</strong></li>
+<li><a name="a133"></a>    <strong>}</strong></li>
+<li><a name="a134"></a>    else</li>
+<li><a name="a135"></a>      <strong>$nid</strong>=0<strong>;  </strong></li>
+<li><a name="a136"></a>      </li>
+<li><a name="a137"></a>    <font color="blue">return</font><strong>(</strong><strong>$nid</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a138"></a>  <strong>}</strong></li>
+<li><a name="a139"></a>  </li>
+<li><a name="a140"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a141"></a>  <strong>{</strong></li>
+<li><a name="a142"></a>     <strong>$sql</strong>=<font color="#66cccc">&quot;delete from dp_documentacion &quot;</font></li>
+<li><a name="a143"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where doc_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a144"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a145"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a146"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a147"></a>    else</li>
+<li><a name="a148"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a149"></a>  <strong>}</strong></li>
+<li><a name="a150"></a>  </li>
+<li><a name="a151"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methoddelxdatpro">delxdatpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a152"></a>  <strong>{</strong></li>
+<li><a name="a153"></a>     <strong>$sql</strong>=<font color="#66cccc">&quot;delete from dp_documentacion &quot;</font></li>
+<li><a name="a154"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$datpro</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a155"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a156"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a157"></a>      <font color="blue">return </font><strong>$datpro</strong><strong>;</strong></li>
+<li><a name="a158"></a>    else</li>
+<li><a name="a159"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a160"></a>  <strong>}</strong></li>
+<li><a name="a161"></a>  </li>
+<li><a name="a162"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a163"></a>  <strong>{</strong></li>
+<li><a name="a164"></a>    <strong>$aux</strong>=new <a href="../default/c_dpDocumentacion.html#methodc_dpDocumentacion">c_dpDocumentacion</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a165"></a>    <strong>$res</strong>=<strong>$aux</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a166"></a>      <font color="blue">if</font><strong>(</strong><strong>$res</strong>!=0<strong>)</strong></li>
+<li><a name="a167"></a>      <strong>{</strong></li>
+<li><a name="a168"></a>        <font color="green">//actualiza todo menos el monto que es calculado</font></li>
+<li><a name="a169"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE dp_documentacion &quot;</font></li>
+<li><a name="a170"></a>          .<font color="#66cccc">&quot;set &quot;</font></li>
+<li><a name="a171"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">doc_nombre='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a172"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">doc_path='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a173"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">WHERE doc_codigo=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a174"></a><font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a175"></a><font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a176"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a177"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a178"></a>    <strong>{</strong></li>
+<li><a name="a179"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a180"></a>    <strong>}      </strong></li>
+<li><a name="a181"></a>    else</li>
+<li><a name="a182"></a>      <font color="blue">return </font>0<strong>;    </strong></li>
+<li><a name="a183"></a>      <strong>}</strong></li>
+<li><a name="a184"></a>  <strong>}</strong></li>
+<li><a name="a185"></a>&nbsp;</li>
+<li><a name="a186"></a>  <font color="blue">function </font><a href="../default/c_dpDocumentacion.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a187"></a>  <strong>{</strong></li>
+<li><a name="a188"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select datpro_id,tipdoc_codigo,doc_codigosis,doc_nombre,&quot;</font></li>
+<li><a name="a189"></a>          .<font color="#66cccc">&quot;doc_path &quot;</font></li>
+<li><a name="a190"></a>          .<font color="#66cccc">&quot;from dp_documentacion &quot;</font></li>
+<li><a name="a191"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where doc_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a192"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a193"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a194"></a>      <strong>{</strong></li>
+<li><a name="a195"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigo">doc_codigo</a>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a196"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$datpro_id">datpro_id</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a197"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$tipdoc_codigo">tipdoc_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a198"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_codigosis">doc_codigosis</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a199"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_nombre">doc_nombre</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>3<strong>]</strong><strong>;</strong></li>
+<li><a name="a200"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDocumentacion.html#var$doc_path">doc_path</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>4<strong>]</strong><strong>;</strong></li>
+<li><a name="a201"></a>        </li>
+<li><a name="a202"></a>        <strong>$res</strong>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a203"></a>    <strong>}</strong></li>
+<li><a name="a204"></a>    else</li>
+<li><a name="a205"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a206"></a>      </li>
+<li><a name="a207"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a208"></a>  <strong>}</strong></li>
+<li><a name="a209"></a>  </li>
+<li><a name="a210"></a><strong>}</strong></li>
+<li><a name="a211"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:30 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

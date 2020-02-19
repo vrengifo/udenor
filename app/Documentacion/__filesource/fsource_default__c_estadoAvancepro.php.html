@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_estadoAvancepro.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_estadoAvancepro.php</h1>
+<p>Documentation is available at <a href="../default/_c_estadoAvancepro_php.html">c_estadoAvancepro.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para estado_avancepro</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para administrar los estados de avance del proyecto desde el punto de vista técnico</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_estadoAvancepro.html">c_estadoAvancepro</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">$estavapro_codigo</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">$estavapro_descripcion</a><strong>;</strong></li>
+<li><a name="a11"></a>  </li>
+<li><a name="a12"></a>  <font color="blue">var </font><a href="../default/c_estadoAvancepro.html#var$con">$con</a><strong>;</strong><font color="green">//conexión a base de datos</font></li>
+<li><a name="a13"></a>&nbsp;</li>
+<li><a name="a14"></a>  <font color="green">//constructor</font></li>
+<li><a name="a14"></a>  </li>
+<li><a name="a15"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodc_estadoAvancepro">c_estadoAvancepro</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a16"></a>  <strong>{</strong></li>
+<li><a name="a17"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a18"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>=<font color="#66cccc">&quot;&quot;</font><strong>;      </strong></li>
+<li><a name="a19"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a20"></a>  <strong>}  </strong></li>
+<li><a name="a21"></a>&nbsp;</li>
+<li><a name="a22"></a>  <font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a22"></a>  </li>
+<li><a name="a23"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a24"></a>  <strong>{</strong></li>
+<li><a name="a25"></a>    <strong>$ncampos</strong>=2<strong>;</strong></li>
+<li><a name="a26"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a27"></a>    <strong>{</strong></li>
+<li><a name="a28"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a29"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>=<strong>$dato</strong><strong>[</strong>1<strong>]</strong><strong>;      </strong></li>
+<li><a name="a30"></a>    <strong>} </strong></li>
+<li><a name="a31"></a>  <strong>}</strong></li>
+<li><a name="a32"></a>  </li>
+<li><a name="a33"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a34"></a>  <strong>{</strong></li>
+<li><a name="a35"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a36"></a>    echo <font color="#66cccc">&quot;clase c_estadoAvancepro &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a37"></a>      echo <font color="#66cccc">&quot;estavapro_codigo: &quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a38"></a>    echo <font color="#66cccc">&quot;estavapro_descripcion: &quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a39"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a40"></a>  <strong>}  </strong></li>
+<li><a name="a41"></a>  </li>
+<li><a name="a42"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a43"></a>  <strong>{</strong></li>
+<li><a name="a44"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select count(estavapro_codigo) cuantos from estado_avancepro where estavapro_codigo='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>'</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a45"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a46"></a>    <strong>$cuantos</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a47"></a>    <font color="blue">return </font><strong>(</strong><strong>$cuantos</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a48"></a>  <strong>}    </strong></li>
+<li><a name="a49"></a>  </li>
+<li><a name="a50"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a50"></a>  </li>
+<li><a name="a51"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a52"></a>  <strong>{</strong></li>
+<li><a name="a53"></a>    <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a54"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a55"></a>    <strong>{</strong></li>
+<li><a name="a56"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into estado_avancepro&quot;</font></li>
+<li><a name="a57"></a>            .<font color="#66cccc">&quot; (estavapro_codigo,estavapro_descripcion)&quot;</font></li>
+<li><a name="a58"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a59"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>')</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a60"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a61"></a>    <strong>}  </strong></li>
+<li><a name="a62"></a>      <font color="green">//echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a63"></a>      <font color="green">//$this-&gt;mostrar_dato();    </font></li>
+<li><a name="a64"></a>      </li>
+<li><a name="a65"></a>    <font color="blue">return  </font><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a><strong>)</strong><strong>;        </strong></li>
+<li><a name="a66"></a>        </li>
+<li><a name="a67"></a>  <strong>}</strong></li>
+<li><a name="a68"></a>  </li>
+<li><a name="a69"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a70"></a>  <strong>{</strong></li>
+<li><a name="a71"></a>     <strong>$sql</strong>=<font color="#66cccc">&quot;delete from estado_avancepro &quot;</font></li>
+<li><a name="a72"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">where estavapro_codigo='<strong>$id</strong>' </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a73"></a>    <font color="green">//echo &quot;&lt;hr&gt;$sql&lt;hr&gt;&quot;;        </font></li>
+<li><a name="a74"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a75"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a76"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a77"></a>    else</li>
+<li><a name="a78"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a79"></a>  <strong>}</strong></li>
+<li><a name="a80"></a>  </li>
+<li><a name="a81"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a82"></a>  <strong>{</strong></li>
+<li><a name="a83"></a>    <font color="green">//buscar si existe el nuevo nombre</font></li>
+<li><a name="a84"></a>    <strong>$sql_nombre</strong>=<font color="#66cccc">&quot;select estavapro_codigo from estado_avancepro &quot;</font></li>
+<li><a name="a85"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">where estavapro_descripcion='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>' </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a86"></a>    <strong>$rs_nombre</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql_nombre</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a87"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs_nombre</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a88"></a>    <strong>{    </strong></li>
+<li><a name="a89"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE estado_avancepro&quot;</font></li>
+<li><a name="a90"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"> set estavapro_descripcion='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a91"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"> WHERE estavapro_codigo='<strong>$id</strong>'</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a92"></a>  <font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a93"></a>  <font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a94"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a95"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a96"></a>    <strong>}</strong></li>
+<li><a name="a97"></a>    else </li>
+<li><a name="a98"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a99"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;        </strong></li>
+<li><a name="a100"></a>  <strong>}    </strong></li>
+<li><a name="a101"></a>&nbsp;</li>
+<li><a name="a102"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodrecuperar_dato">recuperar_dato</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a103"></a>  <strong>{</strong></li>
+<li><a name="a104"></a>    <strong>$sql</strong>=<font color="#66cccc">&quot;select estavapro_codigo,estavapro_descripcion from estado_avancepro  &quot;</font></li>
+<li><a name="a105"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where estavapro_codigo='<strong>$id</strong>'</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a106"></a>    <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a107"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a108"></a>    <strong>{</strong></li>
+<li><a name="a109"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_codigo">estavapro_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a110"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#var$estavapro_descripcion">estavapro_descripcion</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a111"></a>      <strong>$res</strong>=1<strong>;</strong></li>
+<li><a name="a112"></a>    <strong>}</strong></li>
+<li><a name="a113"></a>    else</li>
+<li><a name="a114"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a115"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a116"></a>  <strong>}</strong></li>
+<li><a name="a117"></a>&nbsp;</li>
+<li><a name="a118"></a>  <font color="blue">function </font><a href="../default/c_estadoAvancepro.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a119"></a>  <strong>{</strong></li>
+<li><a name="a120"></a>    <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_estadoAvancepro.html#methodrecuperar_dato">recuperar_dato</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a121"></a>    <font color="blue">return</font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a122"></a>  <strong>} </strong></li>
+<li><a name="a123"></a><strong>}</strong></li>
+<li><a name="a124"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:33 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>

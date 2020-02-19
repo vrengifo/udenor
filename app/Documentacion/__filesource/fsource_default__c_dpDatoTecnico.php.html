@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for c_dpDatoTecnico.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file c_dpDatoTecnico.php</h1>
+<p>Documentation is available at <a href="../default/_c_dpDatoTecnico_php.html">c_dpDatoTecnico.php</a></p>
+<div class="src-code">
+<pre><ol><li><a name="a1"></a><strong>&lt;?php</strong></li>
+<li><a name="a2"></a><font color="green">//clase para dp_datotecnico</font></li>
+<li><a name="a3"></a><font color="#009999">/**</font></li>
+<li><a name="a4"></a><font color="#009999"> * Clase usada para registrar los valores de los datos técnicos al ingresar el proyecto</font></li>
+<li><a name="a5"></a><font color="#009999"> *</font></li>
+<li><a name="a6"></a><font color="#009999"> */</font></li>
+<li><a name="a7"></a><font color="blue">class </font><a href="../default/c_dpDatoTecnico.html">c_dpDatoTecnico</a></li>
+<li><a name="a8"></a><strong>{</strong></li>
+<li><a name="a9"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_codigo">$dattec_codigo</a><strong>;</strong></li>
+<li><a name="a10"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$datpro_id">$datpro_id</a><strong>;</strong></li>
+<li><a name="a11"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">$estdes_codigo</a><strong>;</strong></li>
+<li><a name="a12"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">$dattec_finicio</a><strong>;</strong></li>
+<li><a name="a13"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">$dattec_ffinal</a><strong>;  </strong></li>
+<li><a name="a14"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">$dattec_duracion</a><strong>;</strong></li>
+<li><a name="a15"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">$dattec_beneficiario</a><strong>;</strong></li>
+<li><a name="a16"></a>  </li>
+<li><a name="a17"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$dattec_monto">$dattec_monto</a><strong>;</strong></li>
+<li><a name="a18"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">$mon_codigo</a><strong>;</strong></li>
+<li><a name="a19"></a>  </li>
+<li><a name="a20"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$con">$con</a><strong>;</strong></li>
+<li><a name="a21"></a>  </li>
+<li><a name="a22"></a>  <font color="blue">var </font><a href="../default/c_dpDatoTecnico.html#var$fcorta">$fcorta</a><strong>;</strong></li>
+<li><a name="a23"></a>&nbsp;</li>
+<li><a name="a24"></a>  </li>
+<li><a name="a25"></a>  <font color="green">//constructor</font></li>
+<li><a name="a25"></a>  </li>
+<li><a name="a26"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodc_dpDatoTecnico">c_dpDatoTecnico</a><strong>(</strong><strong>$conBd</strong><strong>)</strong></li>
+<li><a name="a27"></a>  <strong>{</strong></li>
+<li><a name="a28"></a>        <font color="blue">include_once</font><strong>(</strong><font color="#66cccc">&quot;class/c_moneda.php&quot;</font><strong>)</strong><strong>;</strong></li>
+<li><a name="a29"></a>        <font color="blue">include_once</font><strong>(</strong><font color="#66cccc">&quot;class/c_dattecxent.php&quot;</font><strong>)</strong><strong>;</strong></li>
+<li><a name="a30"></a>        </li>
+<li><a name="a31"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_codigo">dattec_codigo</a>=0<strong>;</strong></li>
+<li><a name="a32"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$datpro_id">datpro_id</a>=0<strong>;      </strong></li>
+<li><a name="a33"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a34"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>=0<strong>;</strong></li>
+<li><a name="a35"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a36"></a>      </li>
+<li><a name="a37"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a38"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>=0<strong>;</strong></li>
+<li><a name="a39"></a>      </li>
+<li><a name="a40"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_monto">dattec_monto</a>=<font color="#66cccc">&quot;0&quot;</font><strong>;</strong></li>
+<li><a name="a41"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a42"></a>      </li>
+<li><a name="a43"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a>=<strong>&amp;</strong><strong>$conBd</strong><strong>;</strong></li>
+<li><a name="a44"></a>      </li>
+<li><a name="a45"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$fcorta">fcorta</a>=<font color="#66cccc">&quot;%Y-%m-%d&quot;</font><strong>;</strong></li>
+<li><a name="a46"></a>  <strong>}  </strong></li>
+<li><a name="a47"></a>  </li>
+<li><a name="a48"></a><font color="green">//funciones para cargar datos desde un arreglo, no se carga id</font></li>
+<li><a name="a48"></a>  </li>
+<li><a name="a49"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodcargar_dato">cargar_dato</a><strong>(</strong><strong>$dato</strong><strong>)            </strong></li>
+<li><a name="a50"></a>  <strong>{</strong></li>
+<li><a name="a51"></a>    <strong>$ncampos</strong>=6<strong>;</strong></li>
+<li><a name="a52"></a>    <font color="blue">if</font><strong>(</strong><strong>$ncampos</strong>==<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$dato</strong><strong>))</strong></li>
+<li><a name="a53"></a>    <strong>{</strong></li>
+<li><a name="a54"></a>      <font color="green">//$this-&gt;datpro_id=$dato[0];</font></li>
+<li><a name="a55"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>=<strong>$dato</strong><strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a56"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>=<strong>$dato</strong><strong>[</strong>1<strong>]</strong><strong>;      </strong></li>
+<li><a name="a57"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>=<strong>$dato</strong><strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a58"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>=<strong>$dato</strong><strong>[</strong>3<strong>]</strong><strong>;</strong></li>
+<li><a name="a59"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>=<strong>$dato</strong><strong>[</strong>4<strong>]</strong><strong>;</strong></li>
+<li><a name="a60"></a>      </li>
+<li><a name="a61"></a>      <font color="green">//$this-&gt;dattec_monto=$dato[5];</font></li>
+<li><a name="a62"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>=<strong>$dato</strong><strong>[</strong>5<strong>]</strong><strong>;</strong></li>
+<li><a name="a63"></a>    <strong>} </strong></li>
+<li><a name="a64"></a>  <strong>}</strong></li>
+<li><a name="a65"></a>  </li>
+<li><a name="a66"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodmostrar_dato">mostrar_dato</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a67"></a>  <strong>{</strong></li>
+<li><a name="a68"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;class c_dpDatoTecnico &lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a69"></a>      echo <font color="#66cccc">&quot;dattec_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_codigo">dattec_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a70"></a>    echo <font color="#66cccc">&quot;datpro_id:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$datpro_id">datpro_id</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;    </strong></li>
+<li><a name="a71"></a>    echo <font color="#66cccc">&quot;estdes_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a72"></a>    echo <font color="#66cccc">&quot;dattec_finicio:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a73"></a>    echo <font color="#66cccc">&quot;dattec_ffinal:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a74"></a>    echo <font color="#66cccc">&quot;dattec_duracion:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a75"></a>    echo <font color="#66cccc">&quot;dattec_beneficiario:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a76"></a>    </li>
+<li><a name="a77"></a>    echo <font color="#66cccc">&quot;dattec_monto:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_monto">dattec_monto</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a78"></a>    echo <font color="#66cccc">&quot;mon_codigo:&quot;</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>.<font color="#66cccc">&quot;&lt;br&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a79"></a>    echo <font color="#66cccc">&quot;&lt;hr&gt;&quot;</font><strong>;</strong></li>
+<li><a name="a80"></a>  <strong>}  </strong></li>
+<li><a name="a81"></a>  </li>
+<li><a name="a82"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodsetear">setear</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a83"></a>  <strong>{</strong></li>
+<li><a name="a84"></a>      <font color="blue">if</font><strong>((</strong><a href="http://www.php.net/strlen">strlen</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a><strong>)</strong>==0<strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>==<font color="#66cccc">&quot;-&quot;</font><strong>))</strong></li>
+<li><a name="a85"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></li>
+<li><a name="a86"></a>      <font color="blue">if</font><strong>((</strong><a href="http://www.php.net/strlen">strlen</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a><strong>)</strong>==0<strong>)</strong>||<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>==<font color="#66cccc">&quot;-&quot;</font><strong>))</strong></li>
+<li><a name="a87"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>=<font color="#66cccc">&quot;&quot;</font><strong>;  </strong></li>
+<li><a name="a88"></a>  <strong>}</strong></li>
+<li><a name="a89"></a>  </li>
+<li><a name="a90"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a91"></a>  <strong>{</strong></li>
+<li><a name="a92"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodsetear">setear</a><strong>(</strong><strong>)</strong><strong>;</strong><font color="green">//pone cero en los valores q no han sido escogidos</font></li>
+<li><a name="a93"></a>      <font color="green">/*</font></li>
+<li><a name="a94"></a><font color="green">      $sql=&quot;select dattec_codigo from dp_datotecnico &quot;</font></li>
+<li><a name="a95"></a><font color="green">          .&quot;where estdes_codigo=$this-&gt;estdes_codigo &quot;</font></li>
+<li><a name="a96"></a><font color="green">          .&quot;and datpro_id=$this-&gt;datpro_id &quot;;</font></li>
+<li><a name="a97"></a><font color="green">      */    </font></li>
+<li><a name="a98"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;select dattec_codigo from dp_datotecnico &quot;</font></li>
+<li><a name="a99"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where datpro_id=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$datpro_id">datpro_id</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a100"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a101"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a102"></a>      <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a103"></a>    else</li>
+<li><a name="a104"></a>      <strong>$res</strong>=0<strong>; </strong></li>
+<li><a name="a105"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a106"></a>  <strong>}</strong></li>
+<li><a name="a107"></a>&nbsp;</li>
+<li><a name="a108"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodcrearoactualizar">crearoactualizar</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a109"></a>  <strong>{</strong></li>
+<li><a name="a110"></a>      <strong>$existe</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a111"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$existe</strong><strong>)</strong></li>
+<li><a name="a112"></a>      <strong>{</strong></li>
+<li><a name="a113"></a>        <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodadd">add</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a114"></a>      <strong>}</strong></li>
+<li><a name="a115"></a>      else</li>
+<li><a name="a116"></a>      <strong>{</strong></li>
+<li><a name="a117"></a>        <strong>$res</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodupdate">update</a><strong>(</strong><strong>$existe</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a118"></a>      <strong>}</strong></li>
+<li><a name="a119"></a>      <font color="blue">return</font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a120"></a>  <strong>} </strong></li>
+<li><a name="a121"></a>  </li>
+<li><a name="a122"></a>  <font color="green">//funciones con base de datos</font></li>
+<li><a name="a122"></a>  </li>
+<li><a name="a123"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodadd">add</a><strong>(</strong><strong>)</strong></li>
+<li><a name="a124"></a>  <strong>{</strong></li>
+<li><a name="a125"></a>      <strong>$insertado</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a126"></a>    <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$insertado</strong><strong>)</strong></li>
+<li><a name="a127"></a>    <strong>{</strong></li>
+<li><a name="a128"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;insert into dp_datotecnico&quot;</font></li>
+<li><a name="a129"></a>            .<font color="#66cccc">&quot; (datpro_id,estdes_codigo,dattec_finicio,dattec_ffinal,&quot;</font></li>
+<li><a name="a130"></a>            .<font color="#66cccc">&quot;dattec_duracion,dattec_beneficiario,dattec_monto,mon_codigo)&quot;</font></li>
+<li><a name="a131"></a>            .<font color="#66cccc">&quot; values (&quot;</font></li>
+<li><a name="a132"></a>            .<font color="#66cccc">&quot;<font color="#66cccc"><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$datpro_id">datpro_id</a>,<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>,'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a133"></a>            .<font color="#66cccc">&quot;<font color="#66cccc">'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_monto">dattec_monto</a>','<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>')</font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a134"></a>      <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a135"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a136"></a>      <strong>{</strong></li>
+<li><a name="a137"></a>        <font color="green">//recuperar el id del dp_datotecnicoes insertado, dattec_codigo</font></li>
+<li><a name="a138"></a>        <strong>$nid</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodvalidar">validar</a><strong>(</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a139"></a>      <strong>}</strong></li>
+<li><a name="a140"></a>      else</li>
+<li><a name="a141"></a>        <strong>$nid</strong>=0<strong>;</strong></li>
+<li><a name="a142"></a>    <strong>}</strong></li>
+<li><a name="a143"></a>    else</li>
+<li><a name="a144"></a>      <strong>$nid</strong>=0<strong>;  </strong></li>
+<li><a name="a145"></a>      </li>
+<li><a name="a146"></a>    <font color="blue">return</font><strong>(</strong><strong>$nid</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a147"></a>  <strong>}</strong></li>
+<li><a name="a148"></a>  </li>
+<li><a name="a149"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methoddel">del</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a150"></a>  <strong>{</strong></li>
+<li><a name="a151"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;delete from dp_datotecnico &quot;</font></li>
+<li><a name="a152"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where dattec_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a153"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a154"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a155"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a156"></a>    else</li>
+<li><a name="a157"></a>      <font color="blue">return </font>0<strong>;          </strong></li>
+<li><a name="a158"></a>  <strong>}</strong></li>
+<li><a name="a159"></a>  </li>
+<li><a name="a160"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methoddelxdatpro">delxdatpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a161"></a>  <strong>{</strong></li>
+<li><a name="a162"></a>     <strong>$dattec</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodbuscarxdatpro">buscarxdatpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a163"></a>     <strong>$odet</strong>=new <a href="../default/c_dattecxent.html">c_dattecxent</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a164"></a>     </li>
+<li><a name="a165"></a>     <strong>$odet</strong><strong>-&gt;</strong>delxdattec<strong>(</strong><strong>$dattec</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a166"></a>     <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methoddel">del</a><strong>(</strong><strong>$dattec</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a167"></a>       </li>
+<li><a name="a168"></a>    <font color="blue">return </font><strong>$datpro</strong><strong>;</strong></li>
+<li><a name="a169"></a>  <strong>}  </strong></li>
+<li><a name="a170"></a>  </li>
+<li><a name="a171"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodupdate">update</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a172"></a>  <strong>{</strong></li>
+<li><a name="a173"></a>    <strong>$aux</strong>=new <a href="../default/c_dpDatoTecnico.html#methodc_dpDatoTecnico">c_dpDatoTecnico</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a174"></a>    <strong>$res</strong>=<strong>$aux</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a175"></a>      <font color="blue">if</font><strong>(</strong><strong>$res</strong>!=0<strong>)</strong></li>
+<li><a name="a176"></a>      <strong>{</strong></li>
+<li><a name="a177"></a>        <font color="green">//actualiza todo menos el monto que es calculado</font></li>
+<li><a name="a178"></a>        <strong>$sql</strong>=<font color="#66cccc">&quot;UPDATE dp_datotecnico &quot;</font></li>
+<li><a name="a179"></a>          .<font color="#66cccc">&quot;set &quot;</font></li>
+<li><a name="a180"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">estdes_codigo='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a181"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">dattec_finicio='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a182"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">dattec_ffinal='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a183"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">dattec_duracion='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a184"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">dattec_beneficiario='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>',</font><font color="#66cccc">&quot;</li>
+<li><a name="a185"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">mon_codigo='<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>' </font><font color="#66cccc">&quot;</li>
+<li><a name="a186"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">WHERE dattec_codigo=<strong>$id</strong></font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a187"></a><font color="green">//    echo &quot;&lt;br&gt;$sql &lt;br&gt;&quot;;</font></li>
+<li><a name="a188"></a><font color="green">//    $this-&gt;mostrar_dato();        </font></li>
+<li><a name="a189"></a>    <strong>$rs </strong>= <strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a190"></a>    <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>)</strong></li>
+<li><a name="a191"></a>    <strong>{</strong></li>
+<li><a name="a192"></a>      <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodactualizarmonto">actualizarmonto</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a193"></a>      <font color="blue">return </font><strong>$id</strong><strong>;</strong></li>
+<li><a name="a194"></a>    <strong>}      </strong></li>
+<li><a name="a195"></a>    else</li>
+<li><a name="a196"></a>      <font color="blue">return </font>0<strong>;    </strong></li>
+<li><a name="a197"></a>      <strong>}</strong></li>
+<li><a name="a198"></a>  <strong>}</strong></li>
+<li><a name="a199"></a>&nbsp;</li>
+<li><a name="a200"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodbuscarxpro">buscarxpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a201"></a>  <strong>{</strong></li>
+<li><a name="a202"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select dattec_codigo from dp_datotecnico where datpro_id=<strong>$datpro</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a203"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a204"></a>      <font color="blue">if</font><strong>(</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a205"></a>        <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a206"></a>      else</li>
+<li><a name="a207"></a>        <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a208"></a>      <font color="blue">return</font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a209"></a>  <strong>}</strong></li>
+<li><a name="a210"></a>  </li>
+<li><a name="a211"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a212"></a>  <strong>{</strong></li>
+<li><a name="a213"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select datpro_id,estdes_codigo,date_format(dattec_finicio,'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$fcorta">fcorta</a>'),date_format(dattec_ffinal,'<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$fcorta">fcorta</a>'),</font><font color="#66cccc">&quot;</li>
+<li><a name="a214"></a>          .<font color="#66cccc">&quot;dattec_duracion,dattec_beneficiario,dattec_monto,mon_codigo &quot;</font></li>
+<li><a name="a215"></a>          .<font color="#66cccc">&quot;from dp_datotecnico &quot;</font></li>
+<li><a name="a216"></a>          .<font color="#66cccc">&quot;<font color="#66cccc">where dattec_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a217"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a218"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a219"></a>      <strong>{</strong></li>
+<li><a name="a220"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_codigo">dattec_codigo</a>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a221"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$datpro_id">datpro_id</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a222"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$estdes_codigo">estdes_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>1<strong>]</strong><strong>;</strong></li>
+<li><a name="a223"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_finicio">dattec_finicio</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>2<strong>]</strong><strong>;</strong></li>
+<li><a name="a224"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_ffinal">dattec_ffinal</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>3<strong>]</strong><strong>;</strong></li>
+<li><a name="a225"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_duracion">dattec_duracion</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>4<strong>]</strong><strong>;</strong></li>
+<li><a name="a226"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_beneficiario">dattec_beneficiario</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>5<strong>]</strong><strong>;</strong></li>
+<li><a name="a227"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_monto">dattec_monto</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>6<strong>]</strong><strong>;</strong></li>
+<li><a name="a228"></a>        <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>7<strong>]</strong><strong>;</strong></li>
+<li><a name="a229"></a>        </li>
+<li><a name="a230"></a>        <strong>$res</strong>=<strong>$id</strong><strong>;</strong></li>
+<li><a name="a231"></a>    <strong>}</strong></li>
+<li><a name="a232"></a>    else</li>
+<li><a name="a233"></a>      <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a234"></a>      </li>
+<li><a name="a235"></a>    <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a236"></a>  <strong>}</strong></li>
+<li><a name="a237"></a>  </li>
+<li><a name="a238"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodcalcularmonto">calcularmonto</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a239"></a>  <strong>{</strong></li>
+<li><a name="a240"></a>    <strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodinfo">info</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a241"></a>    <strong>$cmon</strong>=new <a href="../default/c_moneda.html">c_moneda</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a242"></a>    <font color="green">//convertir todo a $</font></li>
+<li><a name="a243"></a>    <strong>$sql</strong>=<font color="#66cccc">&quot;select sum(dte.dte_monto*(mon.mon2dolar)) &quot;</font></li>
+<li><a name="a244"></a>        .<font color="#66cccc">&quot;from dattecxent dte, moneda mon &quot;</font></li>
+<li><a name="a245"></a>        .<font color="#66cccc">&quot;<font color="#66cccc">where dte.mon_codigo=mon.mon_codigo and dte.dattec_codigo=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$dattec_codigo">dattec_codigo</a> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a246"></a>    <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a247"></a>    <strong>$montodolar</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a248"></a>    </li>
+<li><a name="a249"></a>    <font color="green">//recuperar la moneda del datoTecnico</font></li>
+<li><a name="a250"></a>    <strong>$cmon</strong><strong>-&gt;</strong>info<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$mon_codigo">mon_codigo</a><strong>)</strong><strong>;</strong></li>
+<li><a name="a251"></a>    <strong>$monto</strong>=<strong>$montodolar</strong>/<strong>$cmon</strong><strong>-&gt;</strong>mon2dolar<strong>;    </strong></li>
+<li><a name="a252"></a>    <font color="blue">return </font><strong>(</strong><strong>$monto</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a253"></a>  <strong>}</strong></li>
+<li><a name="a254"></a>  </li>
+<li><a name="a255"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodactualizarmonto">actualizarmonto</a><strong>(</strong><strong>$id</strong><strong>)</strong></li>
+<li><a name="a256"></a>  <strong>{</strong></li>
+<li><a name="a257"></a>      <strong>$monto</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#methodcalcularmonto">calcularmonto</a><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a258"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">update dp_datotecnico set dattec_monto='<strong>$monto</strong>' where dattec_codigo=<strong>$id</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a259"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a260"></a>      <font color="blue">return </font><strong>(</strong><strong>$id</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a261"></a>  <strong>}</strong></li>
+<li><a name="a262"></a>  </li>
+<li><a name="a263"></a>  <font color="blue">function </font><a href="../default/c_dpDatoTecnico.html#methodbuscarxdatpro">buscarxdatpro</a><strong>(</strong><strong>$datpro</strong><strong>)</strong></li>
+<li><a name="a264"></a>  <strong>{</strong></li>
+<li><a name="a265"></a>      <strong>$sql</strong>=<font color="#66cccc">&quot;<font color="#66cccc">select dattec_codigo from dp_datotecnico where datpro_id=<strong>$datpro</strong> </font><font color="#66cccc">&quot;<strong>;</strong></li>
+<li><a name="a266"></a>      <strong>$rs</strong>=<strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../default/c_dpDatoTecnico.html#var$con">con</a><strong>-&gt;</strong>Execute<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></li>
+<li><a name="a267"></a>      <font color="blue">if</font><strong>(</strong><strong>!</strong><strong>$rs</strong><strong>-&gt;</strong>EOF<strong>)</strong></li>
+<li><a name="a268"></a>        <strong>$res</strong>=<strong>$rs</strong><strong>-&gt;</strong>fields<strong>[</strong>0<strong>]</strong><strong>;</strong></li>
+<li><a name="a269"></a>      else</li>
+<li><a name="a270"></a>        <strong>$res</strong>=0<strong>;</strong></li>
+<li><a name="a271"></a>      <font color="blue">return </font><strong>(</strong><strong>$res</strong><strong>)</strong><strong>;    </strong></li>
+<li><a name="a272"></a>  <strong>} </strong></li>
+<li><a name="a273"></a>       </li>
+<li><a name="a274"></a><strong>}</strong></li>
+<li><a name="a275"></a><strong>?&gt;</strong></li>
+</ol></pre>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Sun,  5 Jun 2005 23:17:29 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC3</a>
+	</div>
+</body>
+</html>
